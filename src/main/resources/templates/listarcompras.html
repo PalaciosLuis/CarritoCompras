@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>catalogo</title>
+
+	<!-- Agrega la referencia al CSS de Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	
+<div class="container mt-4">
+		<h1>Carrito de compra</h1>
+		<table class="table table-striped">
+		<thead>
+		<tr>
+
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>cantidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Itera sobre la lista de medicamentos y muestra cada medicamento -->
+				<tr th:each="compras : ${compras}">
+					<td th:text="${compras.nombre}"></td>
+					<td th:text="${compras.total}"></td>
+					<td th:text="${compras.cantidad}"></td>
+
+					<td>
+					<a th:href="@{/compras/eliminar/{id}(id=${compras.id})}"
+							class="btn btn-danger btn-sm">Borrar</a>
+					</td>
+					
+					</tr>
+					</tbody>
+					</table>
+
+	
+		
+	</div>
+</body>
+</html>

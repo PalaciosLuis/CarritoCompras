@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>catalogo</title>
+
+	<!-- Agrega la referencia al CSS de Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	
+<div class="container mt-4">
+		<h1>Carrito de compra</h1>
+		<form th:action="@{/compras/guardarCompra}" th:object="${productos}" method="post">
+			<label>Nombre del Producto: </label> <br>
+			
+			
+			<input type="text" th:field="*{nombre}" th:readonly="true">
+			<br>
+			
+			<label>Cantidad: </label> <br>
+			<input type="number" th:field="*{cantidad}">
+			<br>
+			
+				<label>Precio: </label> <br>
+			<input type="number" th:field="*{precio}" th:readonly="true">
+			<br>
+			
+			
+		
+			<button type="submit" class="btn btn-primary">Comprar</button>
+		</form>
+	</div>
+</body>
+</html>

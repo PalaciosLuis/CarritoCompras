@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar Libro</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container mt-4">
+		<h1>Editar Producto</h1>
+		<form th:action="@{/productos/guardar}" method="post">
+			
+			<input type="hidden" th:field="*{productos.id}" />
+
+			<div class="form-group">
+				<label for="titulo">id:</label>
+				<input type="text" class="form-control" id="titulo" th:field="*{productos.id}" required>
+			</div>
+			<div class="form-group">
+				<label for="autor">nombre:</label>
+				<input type="text" class="form-control" id="autor" th:field="*{productos.nombre}" required>
+			</div>
+			<div class="form-group">
+				<label for="editorial">descripcion:</label>
+				<input type="text" class="form-control" id="editorial" th:field="*{productos.descripcion}" required>
+			</div>
+			<div class="form-group">
+				<label for="fecharegistro">precio:</label>
+				<input type="text" class="form-control" id="fecharegistro" th:field="*{productos.precio}" required>
+			</div>
+			<div class="form-group">
+				<label for="costo">cantidad:</label>
+				<input type="text" class="form-control" id="costo" th:field="*{productos.cantidad}" required>
+			</div>
+			<div class="form-group">
+				<label for="costo">categoria:</label>
+				<input type="text" class="form-control" id="costo" th:field="*{productos.categoria_id}" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+		</form>
+	</div>
+</body>
+
+</html>

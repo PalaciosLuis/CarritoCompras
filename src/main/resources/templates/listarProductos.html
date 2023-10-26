@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>catalogo</title>
+
+	<!-- Agrega la referencia al CSS de Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	
+
+	<div class="container mt-4">
+		<h1>listado de producto</h1>
+		<!-- Agrega una tabla con estilos de Bootstrap -->
+		<table class="table table-striped">
+			<thead>
+				<td>
+					<a th:href="@{/productos/nuevo}"
+							class="btn btn-primary btn-sm">Crear</a>
+					</td>
+
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Precio</th>
+					<th>cantidad</th>
+					<th>categoria_id</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Itera sobre la lista de medicamentos y muestra cada medicamento -->
+				<tr th:each="productos : ${productos}">
+					<td th:text="${productos.id}"></td>
+					<td th:text="${productos.nombre}"></td>
+					<td th:text="${productos.descripcion}"></td>
+					<td th:text="${productos.precio}"></td>
+					<td th:text="${productos.cantidad}"></td>
+					<td th:text="${productos.categoria_id}"></td>
+					<td>
+						<!-- Agrega botones de edición y eliminación con estilos de Bootstrap -->
+					<a th:href="@{/productos/editar/{id}(id=${productos.id})}"
+							class="btn btn-primary btn-sm">Editar</a>
+					</td>
+					<td>
+					<a th:href="@{/productos/eliminar/{id}(id=${productos.id})}"
+							class="btn btn-danger btn-sm">Borrar</a>
+					</td>
+					<td>
+					<a th:href="@{/compras/editarCompra/{id}(id=${productos.id})}"
+							class="btn btn-danger btn-sm">Comprar</a>
+					</td>
+
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
